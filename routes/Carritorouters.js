@@ -5,9 +5,9 @@ import { ActuCarrPlt, CancelarPedido, PedidosResatuante, actualizarEstadoPlato, 
 const Carritorouters=express.Router()
 
 //api rest
-/*GET */
+
 Carritorouters.post('/platos-cart',getProductsCart)
-/* POST */
+
 Carritorouters.post("/platos-cartadd",addProductCart);
 //Funcion caudo hace unlogout se borra carrito y se actuliza los platos 
 Carritorouters.post("/ActuCarrPlt",ActuCarrPlt);

@@ -40,7 +40,7 @@ export const CancelarPedido=async(req,res)=>{
 export const ActuCarrPlt=async(req,res)=>{
   const{idUser}=req.body
   try {
-    await CarritoModel.destroy({where:{IdUser:idUser,EstadoPago:2}})
+    await CarritoModel.destroy({where:{IdUser:idUser,EstadoPago:1}})
     await PlatoModel.update({InCart:0},{where:{}})
     res.json({"Estado":"Listo"})
   } catch (error) {
