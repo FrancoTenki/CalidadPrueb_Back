@@ -3,6 +3,9 @@ import CarritoModel from "../models/CarritoModel.js";
 import PlatoModel from "../models/PlatoModel.js";
 
 //controller de carrito
+/*Estado de pago
+1=>N0 pagado
+2=>Pagado  */
 
 //Traer productos del carrito
 export const getProductsCart = async (req, res) => {
@@ -153,17 +156,9 @@ export const putProduct = async (req, res) => {
 // eliminamos plato
 export const deleteProduct = async (req, res) => {
     const { platoId } = req.params;
-  
-    /* Buscamos el producto en el carrito */
-    const productInCart = await CarritoModel.findOne({where:{PlatoId:platoId}});
-  
     /* Buscamos y eliminamos el producto con la id */
-    await CarritoModel.destroy({where:{PlatoId:platoId}});
+    await CarritoModel.destroy({where:{PlatoId:platoId,EstadoPago:1}});
     
-    /* Buscamos y editamos la prop inCart: false */
-    /* Le pasamos la id del producto en la DB */
-    /* La prop a cambiar y las demas */
-    /* Y el new para devolver el producto editado */
     await PlatoModel.update({InCart:0},{where:{id:platoId}})
       .then(() => {
         res.json({

@@ -8,14 +8,12 @@ export const Login=async(req,res)=>{
     try {
         
         const user=await UserModel.findOne({where:{Username,Password}});
-        // if (!Username || !Password) {
-        //     return res.status(400).json({ error: 'Username and password are required' });
-        // }
+
         if (user===null) {
             return res.status(401).json({ error: 'Invalid username or password' ,'token':'no creo'});
         }
         const token = jwt.sign({ Username:Username,id:user.id,Role:user.Role }, 'your_secret_key', { expiresIn: '1h' });
-        // return res.status(200).json({ message: 'Login successful', user ,'token':'si creo'});
+
         return res.json({token})
 
     } catch (error) {
