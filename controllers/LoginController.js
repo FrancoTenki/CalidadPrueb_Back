@@ -1,5 +1,4 @@
 import UserModel from "../models/UserModel.js";
-// const jwt = require('jsonwebtoken');
 import jwt from 'jsonwebtoken'
 
 //Login

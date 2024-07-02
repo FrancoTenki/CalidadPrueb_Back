@@ -1,4 +1,3 @@
-import { where } from "sequelize";
 import CarritoModel from "../models/CarritoModel.js";
 import PlatoModel from "../models/PlatoModel.js";
 

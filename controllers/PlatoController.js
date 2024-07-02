@@ -49,10 +49,6 @@ export const createPlato=async(req,res)=>{
             await PlatoModel.create(req.body,Id_Restaurante)
             return res.json({ "message": 'Plato creado'});
         }
-        // await PlatoModel.create(req.body,Id_Restaurante)
-        // res.json({
-        //     "message":"Registro creado correctamente"
-        // })
     } catch (error) {
         res.json( {"message": error.message} )
     }
